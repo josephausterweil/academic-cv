@@ -1,0 +1,602 @@
+% tabu/longtabu X-columns break on modern LaTeX kernels ("Dimension too large"),
+% which silently dropped the right-hand date column from every longtabu table.
+% Rolling the kernel back to 2020-02-02 restores correct tabu layout.
+\RequirePackage[2020-02-02]{latexrelease}
+\documentclass[a4paper,10pt]{article}
+\usepackage{cv,booktabs,fontawesome}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Change color to blue
+\def\headcolor{\color[rgb]{0,0,0.5}}
+
+% Space before section headings
+\titlespacing{\section}{0pt}{2ex}{1ex}
+
+\name{Joseph Larry Austerweil}
+
+\info{\faicon{map-marker} & School of Design \& Science, Chiba Institute of Technology,
+                               2-17-1 Tsudanuma, Narashino, Chiba 275-0016, Japan.\\
+      \faicon{home}       & cml.chibatech.dev \\
+      \faicon{envelope}   & joseph.austerweil@gmail.com\\
+      \faicon{github}     & josephausterweil}
+
+\bibliography{jlapubs}
+
+\DeclareSourcemap{
+  \maps[datatype=bibtex, overwrite]{
+    \map{
+      \step[fieldset=month, null]
+    }
+  }
+}
+
+% Use useprefix because of Ashton de Silva
+\ExecuteBibliographyOptions{useprefix=true}
+
+\usepackage[sfdefault,lf,t]{carlito}
+\renewcommand{\bibfont}{\normalfont\fontsize{10}{12.4}\sffamily}
+\usepackage{inconsolata}
+
+\usepackage{longtable,tabu}
+
+\makebibcategory{journal}{Published Peer-Reviewed Journal Articles}
+
+% \addtocategory{books}{
+%   MWH3,
+%   expsmooth08,
+%   fpp2,
+% }
+
+\makebibcategory{conferences}{Peer-Reviewed Conference Proceedings}
+\makebibcategory{bookchapters}{Peer-Reviewed Book Chapters}
+
+\makebibcategory{revisions}{Peer-Reviewed Manuscripts in the Revise and Resubmit Stage}
+\makebibcategory{review}{Peer-Reviewed Manuscripts Under Review}
+
+\addtocategory{journal}{austerweil2024,zemla2023,sanborn2021, mohanta2021, ho2021, lange2020, austerweil2019cogsci, ho2019people, wulff2019, zemla2018, zemla2019, zemla2020,griffiths2018, austerweil2017,cibelli2016,sobel2016,abbott2015,austerweil2015,cohenpriva2015,austerweil2013,griffiths2012,austerweil2011cogpsy,austerweil2011cogsci,gardner2010}
+
+\addtocategory{conferences}{austerweil2026shiritori,hao2026tempo,zhong2026teachingstyle,zhong2026individual,zhong2026alignment,hao2025subtypes,hao2025jpm,hao2025stage, chuang2021, malle2021, chuang2020, afrasiabi2019, payton2019, siew2019, cochrane2018,fathan2018,ho2018,hopman2018,conaway2017,ho2017,ren2017,zemla2017,sarathy2017,ho2016,ho2016cogsci,km2016,kenett2016a,zemla2016,austerweil2016,ho2015,malle2015,qian2015,austerweil2014,jia2013,abbott2012,abbott2012cogsci,griffiths2012cogsci,austerweil2011neurips,austerweil2010neurips,austerweil2010cogsci,austerweil2009cogsci,austerweil2009neurips,austerweil2008cogsci,elsner2007,charniak2006}
+
+\addtocategory{bookchapters}{austerweildatasci, austerweilbayesbookbnp,malle2017,austerweil2015book,austerweil2012book}
+
+%\addtocategory{revisions}{austerweilcatgen,liewjmptut}
+
+%\addtocategory{review}{austerweildatasci, austerweilbayesbookbnp}
+
+\begin{document}
+\maketitle
+
+\section{Education}
+
+~\begin{tabular}{llll}
+2007 & Sc.B (Hons) & Applied Mathematics-Computer Science & Brown University\\
+2011 & MA & Statistics & University of California, Berkeley\\
+2012 & PhD & Psychology & University of California, Berkeley
+\end{tabular}
+
+
+\section{Positions held}
+
+~\begin{tabular}{lP{15cm}}
+2026-- & \textbf{Professor} and \textbf{Academic Director} (co-founding faculty member), School of Design \& Science, Chiba Tech \\
+2025--2026 & \textbf{Senior Research Scientist}, Center for Innovation, Chiba Tech \\
+2023--2025 & \textbf{Associate Professor} (affiliate), Department of Radiology, University of Wisconsin -- Madison \\
+2022-- & \textbf{Visiting Researcher}, RIKEN Advanced Intelligence Project, Tokyo, Japan. \\
+2021--2025& \textbf{Associate Professor}, Department of Psychology, University of Wisconsin -- Madison. \\
+2022--2025& \textbf{Associate Professor} (affiliate), Department of Computer Science, University of Wisconsin -- Madison. \\
+2019-- & \textbf{Associate Editor}, \textit{Computational Brain \& Behavior} \\
+2016--2021& \textbf{Assistant Professor},
+        Department of Psychology, University of Wisconsin -- Madison.\\
+2016--2021& \textbf{Assistant Professor} (affiliate), Department of Computer Science, University of Wisconsin -- Madison. \\
+2013--2016 & \textbf{Assistant Professor},
+        Department of Cognition, Linguistics, \& Psychological Sciences, Brown University. \\ 
+2013 & \textbf{Postdoctoral Researcher} with Noah Goodman, Stanford University. \\  \end{tabular}
+
+\section{Recent honors and awards}
+
+~\begin{tabular}{ll}
+2019 & William K Estes Early Career Award\\
+2019 & L \& S Distinguished Honors Faculty Award \\
+2019 & IBM Watson AI xPrize Final Top 32 Team (Co-I of Team Brown HCRI) \\
+2018 & Vilas Life Cycle Professorship\\
+2018 & University Housing Honored Instructor\\
+\end{tabular}
+
+\section{Open Science}
+My laboratory posts all of its code and research data on its GitHub group website (https://github.com/AusterweilLab/) and/or OSF repositories. 
+
+\section{Grants}
+Near decade-long track record of funding from internal, non-profit, industry, private philanthropic, and different federal agencies totaling over \$1 million dollars in total costs (sub-PI, co-PI, and PI only).
+
+\subsection{Current Grants}
+\begin{tabu}{Xr}
+
+Private Donor (gift to Chiba Institute of Technology) & \\
+Development of AI Education Content & \\
+Co-I: Austerweil (\$10,000,000) & 2026--2029 \\ & \\
+
+Corporate Sponsor (gift to Chiba Institute of Technology) & \\
+Supporting the Evaluation of AI & \\
+Co-I: Austerweil (\$100,000) & 2026
+\end{tabu}
+
+\subsection{Grants Under Review}
+\vspace{-4mm}
+\begin{longtabu} to \linewidth {Xr}
+JST--ANR CREST, FY2026 (Symbiotic AI Interdisciplinary System; France--Japan joint call) & \\
+AI-Mediated Consensus Decision-Making in Human Groups and Networks & \\
+Co-PI: Austerweil & 10/2026--03/2032 \\ & \\
+
+JSPS KAKENHI, Grant-in-Aid for Scientific Research (B), FY2027 competition & \\
+Computational Principles of Long-Term Learning and Transfer through Human--AI Co-Adaptation & \\
+PI: Austerweil & FY2027--FY2030 \\ & \\
+
+JSPS KAKENHI, Grant-in-Aid for Challenging Research (Exploratory), FY2027 competition & \\
+Quantitative Laws of Trust Calibration in AI: The Psychophysics of Fluency and Recalibration in Artificial Agents & \\
+PI: Austerweil & FY2027--FY2029
+\end{longtabu}
+%\vspace{10mm}
+\subsection{Completed Grants}
+\vspace{-4mm}
+\begin{longtabu} to \linewidth {Xr}
+NIH NIA & \\
+PET/MR Correlates of Accelerated Aging in Chronic Epilepsy & \\
+PI: Mcmillan/Prabhakaran -- Co-I: Austerweil (\$3,044,075) & 04/15/21--03/31/26 \\ & \\
+
+Army Research Office  &  \\
+Human-Guided ML for Futuristic Human-Machine Teaming & \\
+Sub-PI: Austerweil (\$363,450) \\ & 02/01/22--01/31/25 \\ 
+
+Templeton Foundation (through Duke University) & \\
+Rumination: Necessary or disordered computation? \\
+PI: Austerweil (\$23,000) \\ & 07/31/23--03/31/24 \\
+
+NIH NICHD &  \\
+Prediction and Early Language Development in Young Children with ASD & \\
+PI: Weismer/Saffran -- Co-I: Austerweil (\$3,496,805) &  07/01/19-06/30/24  \\ & \\
+
+American Family Insurance & \\
+Continuation of Question Asking with Differing Knowledge and Goals & \\
+PI: Austerweil (\$60,356) & 01/01/21-08/31/21 \\ & \\
+
+American Family Insurance & \\
+Question Asking with Differing Knowledge and Goals & \\
+PI: Austerweil (\$75,000) & 01/01/20-12/31/20 \\ & \\
+
+Wisconsin Alumni Research Foundation & \\
+Fall Competition Award & \\
+PI: Austerweil (\$46,655) & 07/01/19-06/30/20  \\ &  \\
+
+DARPA & \\
+Homo SocioNeticus: Scaling the cognitive foundations of online behavior & \\
+PI: Orr (\$5,600,000) -- Sub-PI: Austerweil (\$218,782) & 10/30/17-06/30/19 \\ & \\
+
+NIH NIA R21 & \\
+Computational modeling of semantic decline in Alzheimer's disease & \\
+PI: Austerweil/Zemla (\$400,000) &  09/01/16-05/31/19 \\ & \\
+
+DARPA & \\
+Foundations of Human-Machine Collaboration: Networks of Social and Moral Norms in Human and Artificial Agents & \\
+PI: Malle co-PI: Austerweil (\$413,092) & 04/15/16-01/14/17 \\ & \\
+
+Rhode Island Foundation & \\
+Examining How Autism Spectrum Disorders Affect Social Causal Learning & \\
+PI: Austerweil (\$25,000) & 04/01/16-06/30/16
+\end{longtabu}
+
+\section{Publication Highlights}
+\begin{itemize}\parskip=0cm
+\item Over 70 peer-reviewed papers that have been published in journals, prestigious conferences, or books.
+\item A current advisee (Zhuolun Zhong) led all three of the laboratory's papers at the 2026 Annual Meeting of the {\em Cognitive Science Society}, one of which was accepted for oral presentation (top $\sim$10\% of submissions).
+\item Two published journal articles in 2020 with UW-Madison undergraduate research assistants as co-authors, one of which is an extended version of their honors thesis in my laboratory. 
+%Three total with undergraduate co-authors.
+\item A former PhD advisee (Mark Ho) received a talk at the extremely prestigious at {\em Neural Information Processing Systems (NeurIPS)} for a peer-reviewed paper on his work in my laboratory. Acceptance with oral presentation is <2\% of all submissions.
+\end{itemize}
+
+\enlargethispage*{0.9cm}
+
+%\setlength{\bibitemsep}{1.8pt}
+\setlength{\bibitemsep}{2pt}
+%add preprint?
+\begin{publications}
+
+\printbib{journal}
+\printbib{conferences}
+\printbib{bookchapters}
+\printbib{revisions}
+\printbib{review}
+\end{publications}
+
+\section{Presentations}
+\subsection{Invited Talks}
+\vspace{-5mm}
+\tabulinesep=1.2mm
+\begin{longtabu} to \linewidth {XXr}
+Panel on AI, Health, and Disability & {\em Pro-Justice: Cross-Cultural Approaches to AI Ethics} Workshop, University of Tokyo (co-organized with the University of Cambridge) & 03/11/26 \\
+Knowledge representation and retrieval over a lifetime & Informatics Seminar, Shizuoka University & 01/09/26 \\
+Understanding knowledge using Markov Chain Monte Carlo (MCMC) with People & Computational Summer School on Modeling Social and Collective Behavior (COSMOS) at RIKEN  & 10/02/25 \\
+Understanding Disease Progression using Bayesian Event-Based Models & National Center of Neurology and Psychiatry (Japan) & 09/18/25 \\
+Creating Something Different: Similarity, Contrast, and Representativeness & UW-Madison: Cognitive Brown Bag & 11/15/2023 \\
+Understanding semantic memory retrieval as foraging human knowledge & UIUC Brown Bag & 10/20/2023 \\
+Psychology of Creativity: Bilingualism and Creativity & Creativity Unleashed Cross Labs Workshop 2023 (Kyoto, Japan) & 04/24/2023 \\
+Creating Something Different: Similarity, Contrast, and Representativeness & Sungkyunkwan University invited lecture & 03/09/2023 \\
+False Memories and Pattern Completion in Alzheimer's Disease: A Grocery Fluency Task & 2023 Research in the Rotunda & 03/08/2023 \\
+Human-Machine Interactions & Kyoto University Institute for the Future of Humanity & 12/13/2022 \\
+Human and Machine Learning & RIKEN AIP & 10/05/2022 \\
+Teaming with state interventions: Ms. Pacman with Learning Roombas & STRONG Speculative Human-Machine Teaming Workshop & 07/25/2022 \\
+Network Estimation from Fluency Tasks & VABHS Advanced Statistics Seminar & 03/21/2022 \\
+Semantic Network and Fluency Utility & Goldberg Lab at Princeton University & 12/13/21 \\
+The Role of Psycholinguistic Factors in Large-Scale Question Answering Systems & American Family Insurance Lecture Series & 12/07/21 \\
+Knowledge representation and Retrieval & Keynote for 2021 Meeting of the Society for Mathematical Psychology & 07/09/21 \\
+Is Reinforcement Just a Value to be Maximized? & Reinforcement Learning for Education & 06/29/21 \\
+Knowledge Representation and Retrieval & American Family Insurance Visiting Professor Series & 10/26/20\\
+Knowledge Representation and Retrieval & AI @ UW-Madison & 10/14/20\\
+Bayesian Collaborative Cognition Approach & DARPA Social Sim PI Meeting & 06/26/19 \\
+Knowledge Representation & American Family Insurance Machine Learning Group & 06/14/19 \\
+Do people care about others as if they are reinforcement learners? & Computer Science Guest Lecture at Carleton College & 05/31/19 \\
+Doing vs. showing. Teaching via Demonstration & Computer Science Colloquium Series at Carleton College & 05/30/19 \\
+Why should AI care about people? The case of nonverbal teaching as communication & AI @ UW-Madison & 04/24/19 \\
+Bayesian Collaborative Cognition & DARPA Social Simulation Program December Challenge & 12/11/18 \\
+Analyzing healthy and pathological memory retrieval as (censored) random walks over different knowledge structures & UW-Madison's Computation and Informatics in Biology and Medicine Colloquium & 10/09/18 \\
+Human Perception of Patterns and Randomness as Algorithmic Complexity Over Probabilistic Stack Automata & Conference on Complex Systems & 09/25/18 \\
+Revealing Knowledge Impairment Due to Alzheimer's Disease Using Novel Network Science Methods & Cognitive Network Science & 06/12/18 \\
+Relations Between Category Learning and Generation & Midwest Cognitive Science Conference & 05/13/18 \\
+Nonverbal teaching as communication & Purdue University, Department of Psychology Colloquium & 01/12/18 \\
+Nonverbal Teaching as Communication & Indiana University, Department of Psychological and Brain Sciences. Cognition Seminar Series. & 10/25/17 \\
+Language Biases Our Perception of a Noisy World... And It Should & Keynote at Conference on Language and Perception & 09/07/17 \\
+Uncovering unsupervised categorization biases using Markov chain Monte Carlo with People & 50th Annual Meeting of the Society for Mathematical Psychology & 07/23/17 \\
+
+Analyzing Semantic Memory Retrieval Using Network Theory & Cognitive Network Science & 06/19/17 \\
+
+Randomly walking over human knowledge & HAMLET talk series at UW-Madison & 03/11/16 \\
+
+Constructing symbols from raw sensory input: A computational approach & Psychology Colloquium at University of Wisconsin-Madison & 03/10/16 \\
+
+Randomly walking over human knowledge & Cognitive and Brain Sciences Lunch Talk Series at SUNY Binghamton & 02/26/16 \\
+
+Constructing representations using Bayesian nonparametrics and connections between human knowledge, optimal foraging, and random walks on graph & Brown University Division of Applied Mathematics’ Pattern Theory Learning Lunch Seminar Series &  02/03/16 \\
+
+Constructing symbols from raw sensory input: A computational approach & Michigan State University Psychology Department Colloquium & 01/20/16 \\
+
+Constructing symbols from raw sensory input: A computational approach & University of Michigan Psychology Department Colloquium & 12/19/15 \\
+
+Constructing symbols from raw sensory input: A computational approach & NYU Cognition and Perception Seminar & 11/12/15 \\
+
+Constructing symbols from raw sensory input: A computational approach & Harvard University's Cognition, Brain, and Behavior’s Brown Bag Series & 10/29/15 \\
+
+An Overview of Representation Construction in People and Computers & Eastern Psychological Association & 03/15/14 \\
+
+Constructing context-sensitive representations: A case study with features & Workshop for Implications of Bayesian Cognitive Models for the Intelligence Community & 12/12/13 \\
+
+Understanding how people construct flexible representations: A computational approach & Brown Institute for Brain Science & 11/14/13 \\
+
+Understanding how people construct flexible representations: A computational approach & Brown University & 01/22/13 \\
+
+Constructing flexible representations & University of Colorado, Boulder & 12/14/12 \\
+
+ Constructing flexible feature representations using nonparametric Bayesian inference & The Uncertainty in Natural Intelligence Workshop at Uncertainty in Artificial Intelligence & 08/18/12 \\
+
+Why your mom was wrong about playing with your food: Bayesian nonparametric methods & Invited talk in the Bayesian Methodology symposium at The 45th Annual Meeting of the Society for Mathematical Psychology & 07/22/12 \\ 
+
+Constructing flexible feature representations using nonparametric Bayesian inference & University of Edinburgh & 03/23/12 \\
+
+Constructing flexible feature representations using nonparametric Bayesian inference & University of California, Berkeley & 03/01/12 \\
+
+Effects of context on object representation: a computational exploration & Stanford University & 05/19/11 \\
+
+Effects of context on object representation: a computational exploration & New York University Cognition Area & 11/23/10 \\
+
+Effects of context on object representation: a computational exploration. & University of California, Berkeley & 09/14/10 \\
+
+The effect of distributional information on feature learning & Stanford University & 04/17/09 \\
+
+How the human perceptual system learns (some) variables  & McDonnell Workshop on Problems of Variable Definition and Selection at CMU & 11/05/08
+\end{longtabu}
+
+%ADD 2018 cogsci student posters
+%2019 mathpsych, cogsci (?)
+%psychonomics with jeff
+%add 2019 summer elucid8 
+\subsection{Abstract-Based Conference Presentations}
+\vspace{-4mm}
+\tabulinesep=1.2mm
+\begin{longtabu} to \linewidth {XXXr}
+
+Hao, H., \& Austerweil, J. L. & Bayesian Event-Based Model for Disease Subtype and Stage Inference & Australasian Mathematical Psychology Conference (AMPC) & 02/20/26 \\
+
+Payton, M., Vitello, V., \& Austerweil, J. L. & Rethinking Rumination: A Decision-Theoretic Approach Without Negativity Bias & Annual Meeting of the Cognitive Science Society & 08/01/25 \\
+
+ Hao, H., Prabhakaran, V., Nair, V. A., Adluru, N., \& Austerweil, J. L. & Stage-Aware Event-Based Modeling (SA-EBM) for Disease Progression & 3rd Bayes Duality Workshop at RIKEN AIP & 06/25/25 \\
+
+Austerweil, J. L., \& Cao, K. C. & Teaching Agents with Physical Intervention & 2023 Australasian Society for Mathematical Psychology & 02/09/23 \\
+
+Austerweil, J. L., Cao, K., Bockhurst, J., \& Fung, G. & The Role of Psycholinguistic Factors in Large-Scale Question Answering Systems & 62nd Annual Meeting of the Psychonomic Society & 07/06/21 \\
+
+Chuang Y.-S., Hubbard, E. M., \& Austerweil, J. L. & The "Fraction Sense" Emerges from a Deep Convolutional Neural Network &  42nd Annual Meeting of the Cognitive Science Society & 07/30/20 \\
+
+Rao, A. N., \& Austerweil, J. L. & Interactions Between Categorization and Intuitive Physics & 42nd Annual Meeting of the Cognitive Science Society & 07/30/20 \\
+
+Cao, K., Afrasiabi, M., \& Austerweil, J. L. & How does modern life affect memory retrieval: Analyzing news headlines &  53rd Annual Meeting of the Society for Mathematical Psychology & 07/27/20 \\
+
+Sanborn, A N., Heller, K., Austerweil, J. L., \& Chater, N. & {REFRESH}: A new approach to modeling dimensional biases in perceptual similarity and categorization & 53rd Annual Meeting of the Society for Mathematical Psychology & 07/27/20 \\
+
+
+Liew, S. X., \& Austerweil, J. L. & Distinguishing new from not-old categories & Australian Mathematical Psychology Conference & 02/16/19 \\
+
+Austerweil, J. L., Griffiths, T. L., Daniels, D., \& Tenenbaum, J. B. & Human Perception of Patterns and Randomness As Algorithmic Complexity Over Probabilistic Stack Automata & Conference on Complex Systems & 09/15/18 \\
+
+Malle, B. F. \& Austerweil, J. L. & From value alignment to norm competence: How robots and AI will conform to human society & APA's Conference on Technology, Mind, and Society & 04/06/18 \\
+
+Zemla, J. C., \& Austerweil, J. L. & Modeling Semantic Fluency Data in Alzheimer’s Patients & 2018 Alzheimer’s Disease and Related Disorders Research Day. Madison, WI & 03/23/18 \\ 
+
+Austerweil, J. L. \& Zemla, J. C. & Estimating an Individual's Network Efficiently from Human Fluency Data & 58th Annual Meeting of the Psychonomic Society & 11/09/17 \\
+
+Zemla, J. C. \& Austerweil, J. L. & Modeling Semantic Fluency Data in Alzheimer's Patients & 58th Annual Meeting of the Psychonomic Society & 11/09/17 \\
+
+Miller, H., Jensen, C., Austerweil, J. L., \& Simmering, V. & Investigating flexibility in young children's spatial recall strategies through probabilistic modeling & 2017 Meeting of the Cognitive Development Society  & 10/14/17 \\
+
+Ho, M. K., Littman, M., MacGlashan, J., Cushman, F., \& Austerweil, J. L. & Showing versus Doing: Teaching by Demonstration & Inaugral Conference on Computational Cognitive Neuroscience & 09/07/17 \\
+
+Austerweil, J. L. & Uncovering unsupervised categorization biases using Markov chain Monte Carlo with People & 50th Annual Meeting of the Society for Mathematical Psychology & 07/24/17 \\
+
+Zemla, J. C., \& Austerweil, J. L. & Estimating semantic networks from fluency data & 50th Annual Meeting of the Society for Mathematical Psychology & 07/24/17 \\
+
+Kleiman-Weiner, M., Ho, M. K., Austerweil, J. L., Littman, M., \& Tenenbaum, J. L. & Learning to Cooperate and Compete & The Multidisciplinary Conference on Reinforcement Learning and Decision Making & 06/12/17 \\
+
+Sobel, D. M., \& Austerweil, J. L. & Coding choices affect the analysis of a false belief measure & 2017 Meeting of the Society for Research in Child Development & 04/07/17 \\
+
+Ho, M. K., Littman, M. L., MacGlashan J., Cushman F., \& Austerweil J. L.. & Human Teaching by Demonstration: Showing versus Doing Reinforcement Learning Tasks. &  11th Annual Machine Learning Symposium of the New York Academy of Sciences & 03/03/17 \\
+
+Kenett, Y. M., Allaham, M. M., Austerweil , J. L., \& Malle, B. F. & The Norm Fluency Task: Unveiling the Properties of Norm Representation & 57th Annual Meeting of the Psychonomic Society & 11/19/16 \\
+
+Montambault, B.,  Lucas, C., \& Austerweil, J. L. & The construction of function representations & 38th Annual Conference of the Cognitive Science Society & 08/12/16 \\
+
+Conaway, N., Austerweil, J. L., \& Kurtz, K.  & Two Categories for the Price of One: Generating a Contrast Category after Single-Category Learning. & 49th Annual Meeting of the Society for Mathematical Psychology & 08/08/16 \\
+
+Ho, M. K., Littman, M. L., Cushman, F., \& Austerweil, J. L. & Not Quite Intuitive Behaviorists: Teachers Use Rewards and Punishments Communicatively and Not as Reinforcement. & 49th Annual Meeting of the Society for Mathematical Psychology & 08/05/16 \\
+
+Ho, M. K.,  Austerweil, J. L., Littman, M., \& Cushman, F. & Generous Teachers: Pedagogical Rewards as Reinforcement Versus Communication & 17th Annual Convention of SPSP & 01/30/16 \\
+
+Austerweil, J. L., \& Qian, T. & Additive or substitutive? Constructing features, their types and values from observations. & 56th Annual Meeting of the Psychonomic Society & 11/20/15 \\
+
+Austerweil, J. L. & Dissociating Top-down and Bottom-up Theories of Autism Spectrum Disorders Using Bayesian Models & Rhode Island Consortium for Autism Research \& Treatment & 09/07/15 \\
+
+Xie, W. \& Austerweil, J. L. & The role of relations and attributes in inductive inference & 48th Meeting of the Society for Mathematical Psychology & 07/19/15 \\
+
+Austerweil, J. L., \& Qian, T. & Fast and easy to use inference method for Bayesian nonparametric processes & 48th Meeting of the Society for Mathematical Psychology & 07/19/15 \\
+
+Ho, M. K., Littman, M. L., Cushman, F., \& Austerweil, J. L. & Teaching Behavior with Punishments and Rewards & The 2nd Meeting of the Multi-disciplinary Conference on Reinforcement Learning and Decision Making & 06/08/15 \\
+ 
+Austerweil, J. L., Stanworth, K., \& Franklin, A. & Dissociating Top-down and Bottom-up Theories of Autism Spectrum Disorders Using Bayesian Models & The 55h Annual Meeting of the Psychonomic Society & 11/21/14 \\
+
+Austerweil, J. L., Stanworth, K., \& Franklin, A. & Dissociating Top-down and Bottom-up Theories of Autism Spectrum Disorders Using Bayesian Models & 47th Meeting of the Society for Mathematical Psychology & 06/20/14 \\
+
+Austerweil, J. L., \& Griffiths, T. L. & Learning how to generalize & The 53rd Annual Meeting of the Psychonomic Society & 11/17/12 \\
+
+Prinzmetal, W., Whiteford, K., Austerweil, J. L., \& Landau, A. N. & When information matters: The effects of cue predictability and distractors on the allocation of attention & The 12th VSS Annual Meeting & 05/12/12 \\
+
+Austerweil, J. L., Griffiths, T. L., \& Palmer, S. E. & Learning the orientation dependence of ambiguous images through feedback & Configural Processing Consortium & 11/2/11 \\
+
+Austerweil, J. L., \& Griffiths, T. L. & A computational framework for inferring feature representations &  52nd Annual Meeting of the Psychonomic Society & 11/3/11 \\
+
+Ying, J., Austerweil, J. L., \& Griffiths, T. L. &  Why every pop song sounds the same: Revealing melodic expectations through cultural transmission & 44th Annual Meeting of the Society for Mathematical Psychology & 06/18/11 \\
+
+Austerweil, J. L. \& Griffiths, T. L. & Feature learning as nonparametric Bayesian inference & 43rd Annual Meeting of the Society for Mathematical Psychology & 08/08/10 \\
+
+Austerweil, J. L., \& Griffiths, T. L. & Feature Learning Using Statistics & 16th Meeting of the Cognitive Science Association for Interdisciplinary Learning & 07/26/10 \\
+
+Austerweil, J. L. \& Griffiths, T. L. & Understanding how people learn the features of objects as Bayesian inference & 10th VSS Annual Meeting & 05/11/10 \\
+
+Austerweil, J. L. \& Griffiths, T. L.  & Analyzing human feature learning as non-parametric Bayesian inference & 14th Meeting of the Cognitive Science Association for Interdisciplinary Learning & 08/03/08 \\
+\end{longtabu}
+\section{Advising}
+Highlights:
+\begin{itemize}
+    \item Mentored advisees continue into leadership positions in academia or industry.
+    \item Two postdoctoral advisees are starting tenure-track faculty positions in Fall 2020 (Syracuse University and Technion).
+    \item One former PhD student who received his PhD and our research is published in {\em Journal of Experimental Psychology: General}, and received a talk at {\em Neural Information Processing Systems} (<2\% of papers).
+     \item Three published journal articles with undergraduate co-authors.
+    \item Co-trainer for K99 awarded to Jet Vonk.
+\end{itemize}
+\subsection{Scientists, Researchers, and other Postdoctoral Scholars}
+\begin{tabu}{XXr}
+Zhuolun Zhong & 2025- & Research Scientist, Computational Mind Laboratory, Chiba Tech; begins PhD April 2027 \\
+Mohsen Afrasiabi & Sep 18 - Dec 20 & \\
+Jeffrey Zemla & Oct 16 - Aug 20 & Assistant Professor at Syracuse University \\
+Nicole Beckage & Jan 18 - Sep 18 & Intel \\
+Shi Xian Liew & Jan 18- Oct 19 & Postdoctoral Researcher with Ben Newell at University of New South Wales \\
+Nolan Conaway & Aug 16 - Jul 17 & Shutterstock \\
+Yoed Kenett & Oct 15 - Jul 16 & Assistant Professor at Technion \\
+Ting Qian & Jul 14 - Apr 15 & Lecturer/Senior Lecturer in Data Science at Princeton University \\
+\end{tabu}
+\subsection{Graduate Students}
+\begin{tabu}{XXr}
+Michael Payton & PhD Aug 2026 & Dissertation: {\em A Computational Framework for Perseverative Thought} \\
+Hongtao Hao & PhD May 2026 & Disease progression modeling (TEMPO, SA-EBM); \url{https://hongtaoh.com} \\
+Mark Ho & PhD Dec 2017 & Assistant Professor of Psychology, New York University \\
+Kesong Cao & Masters (Psychology) Spring 2025 &
+\end{tabu}
+\subsection{Post-Baccalaureate and Undergraduates}
+{\em Long-term Research Assistants} \\
+Samantha Greco (Undergraduate RA; Presenting at UW Research in the Rotunda 2023; L\&S Honors Grant; Hillsdale Research Fellowship)  \\
+Blake Chambers (Lab Manager Leading Grocery Shopping Tasks for Studying Healthy and Unhealthy Aging at a Microlongitudinal Scale) \\
+
+Yiwen Weng (Analysis Support for Project Analyzing L2 Learning using Duolingo Data with Elise Hopman; Now Harvard University Masters in Data Science)
+
+Ananthao Rao (L\& S Senior Thesis Grant; Hillsdale Undergraduate/Faculty Research Fellowship; Bromley Travel Grant) \\
+
+Kesong Cao (L \& S Senior Thesis Grant; Welton Summer Sophomore Apprenticeship; Co-author on 2020 {\em BRM} paper) \\ 
+
+Sam Westby (L \& S Senior Thesis Grant; Now PhD Student at Northeastern University)
+
+Kendra Lange (L\&S Senior Thesis Grant; First author peer-reviewed publication; Now PhD Student at Northeastern University) \\
+
+Jacqueliene Erens (Hillsdale Undergraduate/Faculty Research Fellowship; Now PhD Student at UIUC) \\
+
+Elizabeth Pettit (Now PhD Student at Miami University) \\
+
+Carol Medina (Now PhD Student at University of Chicago) \\
+
+Dylan Daniels (co-author on 2018 {\em Cognitive Psychology} paper) \\
+
+Emily Gleason (Summer Research Award; Dean of the College's Prize in Cognitive Science) \\
+
+{\em Shorter-term Research Assistants}: Zafieri Zanial, Cali Stanoch, Saron Setotaw, Xinhui Yu, Hengijiali Xu, Atulya Reddy, Shri Shruti Shridhar, Dong Fang, Wenquan Chen, Chongyue Zhao, Jonathan Brandenberg, Qiuxuan Wu, Sichao Wang, Willa Cai, Yilin Liu, Quixuan Wu, Phoenix Kim, Sophie Sandweiss, Rebekah Manweiler, Vincent Kubala, Emily Low, Wenting Xie, Christine Whalen, Philip Bold, Tariq Abu-Akeel, and Julie Helmers
+
+%Community service --\ elucid8 talk.
+\section{Service}
+\subsection{Department/University}
+\begin{tabu}{Xr}
+Undergraduate Research Scholars Mentor & Fall 2020- \\
+Chair of Workgroup on BIPOC Community Building & Fall 2020 \\
+Department Faculty Senator & Fall 2020-Spring 2021\\
+University Student Misconduct Committee & Fall 2018- \\
+Lecture and Ongoing Consulting for the Office of Student Financial Aid & Summer 2018-Winter 2020 \\
+Madison eSports Faculty Advisor & Fall 2017 \\
+Alternate Senator to faculty Senate & Fall 2017-Spring 2018 \\
+Department Graduate Committee & Fall 2016-Spring 2018 \\
+Social Psychology Job Search Committee & Fall 2014-Spring 2015 \\
+Graduate Program Restructuring Committee & Fall 2014-Spring 2015 \\
+Cognitive Science Undergraduate Self-Study Committee & Spring 2014 \\
+Psychology Undergraduate Honors Award Committee & Spring 2014 \\
+\end{tabu}
+
+\subsection{Student Committees}
+\vspace{-4mm}
+\begin{longtabu} to \linewidth {XXr}
+Harrison Rosenberg & EECS Committee & Fall 2019 - \\
+Yun-Shiuan Chuang & FYP Co-Advisor & Fall 2019 - \\
+Kushin Mukherjee & FYP Committee & Fall 2019 - \\
+Yugang Duan & FYP Committee & Fall 2019 - \\
+Qiawen Liu & FYP Committee & Fall 2019 - \\
+Michael Payton & FYP and Prelim Advisor & Spring 2019 - \\
+Ian Johnston & Prelim Committees & Fall 2018 - \\
+Sarah Sant'Ana & FYP and Prelim Committees & Fall 2018 - \\
+Vincent Frigo & FYP Committee & Summer 2019 - \\
+Sounak Mohanta & FYP Committee & Fall 2018-Fall 2019 \\
+Quan Wan & FYP Committee & Fall 2018-Fall 2019 \\
+Ron Pomper & Prelim Committee & Fall 2018-Spring 2019 \\
+Mark Koranda & Prelim and Dissertation Committee & Fall 2017 - \\
+Elise Hopman & Prelims and Dissertation Co-Advisor & Spring 2017 - \\
+Steve Schwering & FYP and Prelim Committees & Spring 2017 - \\
+Martin Zettersen & Prelim and Dissertation Committees & Spring 2017 - Spring 2020 \\
+Mark Ho & Main PhD Advisor & Mar 2014-Dec 2017 \\
+Pablo Caceres & FYP and Breadth Prelim Committees & Spring 2017  - Spring 2020 \\
+Olivia Zhao & FYP Committee & Spring 2017 - Fall 2018 \\
+Adrienne Wood & Dissertation Committee & Fall 2016 - Spring 2017 \\
+Elena Luchkina & Prelim Committee & Fall 2015-Spring 2016 \\
+Boyoung Kim & Prelim and Dissertation Committee & Fall 2015-Spring 2016 \\
+Alexander Fengler & First-Year Advisor & Fall 2015-Spring 2016 \\
+Babak Hemmatian & First-Year Committee & Fall 2015-Spring 2016 \\
+Junkyung Kim & First-Year Committee & Fall 2014 - Spring 2016 \\
+Matthew Ricci & First-Year Committee & Fall 2014- Spring 2016 \\
+Xi Yang & Masters' Committee & Fall 2014- Spring 2015 \\
+Ceyda Sayali & First-Year Committee & Fall 2014- Spring 2015 \\
+Gideon Goldin & Dissertation Committee & Fall 2013 \\
+\end{longtabu}
+
+\subsection{Community}
+
+\begin{tabu}{Xr}
+NAMI Public Showing of "The S Word" & 02/29/20 \\
+Lecture at the Monona Senior Center & 02/07/20 \\
+Ongoing Research Collaboration with American Family Insurance & Summer 2019- \\ 
+Public Panel on Misinformation & Summer 2019 \\
+Public Lecture at Wisconsin Institute for Discovery (eLUCID8) & 08/07/18 \\
+Volunteer Advising for Veda Data Solutions & Winter 2018 - Fall 2019 \\
+Wisconsin Idea Seminar & Summer 2017 \\
+\end{tabu}
+
+\subsection{Professional}
+
+\begin{tabu}{p{9em}<{\RaggedRight}Xp{8em}<{\RaggedRight}}
+Editor & Associate Editor for {\em Computational Brain \& Behavior} & Summer 2019- \\
+RISC & Faculty Mentor for DoD and IC Summer Internship & Summer 2023 \\
+
+Conference Organizing & Co-Organizer for the 2018 Annual Meeting of the Society for Mathematical Psychology & Winter 2017-Summer 2018 \\
+
+Workshop and Symposium Organizing & Co-Organizer for {\em Make It So (MISO) Camp}, Tokyo --- a two-day working session on directing AI for practitioners outside software engineering, with Noah Raford and Igor Schwarzmann, in partnership with Chiba Tech and the Henkaku Center (\url{https://misocamp.com}); 2016 NeurIPS Workshop on the Future of Interactive Learning Machines; 2014 Symposium for the Eastern Psychological Association; 2012 UAI Workshop on Uncertainty in Natural Intelligence; Co-Organizer for a 2011 Cognitive Science Symposium on Computational Constructivism & Aug 2026; Dec 2016; March 2014; Aug 2012; Jul 2011 \\
+
+Grant Reviewing & Ad Hoc Reviewer for ISF, NSF, and Marie Curie Foundation; NSF GRFP Panelist (multiple years) & 2016- \\
+
+Journal Reviewing (each journal mentioned once) & {\em Cognition, Cognitive Processing, Cognitive Psychology, Cognitive Science, eLIFE, IEEE: Bioinformatics, International Journal for Approximate Reasoning, Journal of the Royal Society: Interface, Journal of Mathematical Psychology, JEP: General, JEP:LMC, Nature: Human Behaviour, Nature: Scientific Reports, Open Mind, PLOS One: Computational Biology, Psychological Science, Psychological Review, Psychonomic Bulletin and Review, Topics in Cognitive Science} & 2010- \\
+
+Conference Paper Reviewing & {\em Artificial Intelligence and Statistics, Cognitive Science Society, IEE:ICDL-EPIROB, Neural Information Processing Systems} & 2010- \\
+
+Other Conference Leadership & Cognitive Science Society Awards Committee, Cognitive Science Society Publication-based Talk Committee, Cognitive Science Society Program Committee, Cognitive Science Mentoring Program Abstract Submissions for the Society for Mathematical Psychology & 2018, 2020, 2020, \& 2020 \\
+
+Memberships: & Cognitive Science Society, Society for Mathematical Psychology, Fellow of the Psychonomic Society, and Associate of the Brain and Behavioral Sciences Journal & 2008-, 2010-, 2017-, and 2017-
+
+\end{tabu}
+%professional: pub-based cogsci 2020; poster review math psych 2020
+\section{Teaching}
+\subsection{Honors}
+
+\begin{tabu}{Xr}
+UW-Madison Distinguished Honors Faculty Award & Spring 2019 \\
+EXCEL Initiative & Fall 2018-Summer 2020 \\
+Final project from PSYC525 added to {\em Locally Sourced}, internal successful writing assignment handbook & Summer 2018 \\
+University Housing Honored Instructor & Spring 2018 \\
+UW-Madison Teaching and Learning Excellence Faculty Fellow & Fall 2016-Spring 2017  
+\end{tabu}
+
+\subsection{Regular courses}
+The second column lists average course and instructor effectiveness from student feedback (1 to 5 Likert scale). Note: prior to Spring 2017, lower was better (from when I was at Brown University). Ratings are not reported for Chiba Tech courses. \\
+
+\begin{tabu}{p{30em}<{\RaggedRight}Xr}
+Antidisciplinary Project Studio I (APS-I), School of Design \& Science, Chiba Tech (\url{https://aps-i.chibatech.dev}) & & Spring 2026 \\
+
+Human and Machine Learning, School of Design \& Science, Chiba Tech (\url{https://hml.chibatech.dev}) & & Spring 2026 \\
+
+Co-Instructor, COSMOS Summer School on Modeling Social and Collective Behavior, RIKEN (\url{https://cosmossummerschool.github.io}) & & 2025 \\
+
+PSYC/COMPSCI/BMI841: Computational Cognitive Science & 4.1 & Fall 2019 \\
+PSYC525: Cognition in Health and Society & 4.3 & Spring 2019 \\
+
+PSYC/COMPSCI/BMI841: Computational Cognitive Science & 4.7 & Fall 2018 \\
+
+PSYC525: Cognition in Health and Society & 4.22 & Spring 2018 \\
+
+PSYC/COMPSCI/BMI841: Computational Cognitive Science & 4.5 & Fall 2017 \\
+
+PSYC501: Cognition in Health and Society & 4.1 & Spring 2017 \\
+
+CLPS0200: Human Cognition & 1.5 & Spring 2016 \\
+
+CLPS2200: Core Topics in Cognition & 1.7 & Spring 2016 \\
+
+CLPS1211: Human and Machine Learning & 1.4 & Fall 2015 \\
+
+CLPS0200: Human Cognition & 1.5 & Spring 2015 \\
+
+CLPS1200: Thinking & 1.5 & Fall 2014 \\
+
+CLPS1211: Human and Machine Learning & 1.3 & Spring 2014 \\
+
+CLPS1200: Thinking & 1.4 & Fall 2013
+\end{tabu}
+
+\subsection{Open Educational Resources}
+{\em A Narrative Introduction to Probability} (\url{https://josephausterweil.github.io/probintro/}) --- an open, in-progress tutorial that builds from set-based probability to working Bayesian nonparametric models, with six interactive Jupyter notebooks and probabilistic programming in GenJAX throughout. Maintained in English and Japanese; source at \url{https://github.com/josephausterweil/probintro}. Supported by the Japanese Probabilistic Computing Consortium Association (JPCCA).
+
+\subsection{Independent Studies}
+\begin{tabu}{Xr}
+4 Undergraduate Independent Studies (4 Psych), and 1 Undergraduate Honors Thesis (COMPSCI) & Spring 2020 \\
+3 Undergraduate Independent Studies (3 Psych), and 1 Masters' Research (COMPSCI) & Fall 2019 \\
+1 Undergraduate Honors Thesis (Psych), and 3 Undergraduate Independent Studies (1 Psych \& 2 COMPSCI) & Spring 2019 \\
+1 Undergraduate Honors Thesis (Psych), and 3 Undergraduate Independent Studies (1 Psych \& 2 COMPSCI) & Fall 2018 \\
+1 Undergraduate Honors Thesis (Psych), 5 Undergraduate Independent Studies (2 Psych \& 3 COMPSCI), and 1 Masters Research Study (COMPSCI) & Spring 2018 \\
+8 Undergraduate Independent Studies (2 PSYCH \& 6 COMPSCI) & Fall 2017 \\
+%2 Undergraduate Independent Studies (1 PSYCH \& 1 COMPSCI) & Summer 2017 \\
+3 Undergraduate Independent Studies (3 PSYCH) & Spring 2017 \\
+4 Undergraduate Direct Research (4 PSYCH) & Fall 2015 \\ 
+3 Undergraduate Direct Research (3 PSYCH) & Spring 2015 \\ 
+3 Undergraduate Direct Research (3 PSYCH) & Fall 2014 \\
+1 Undergraduate Direct Research (1 PSYCH) & Spring 2014
+\end{tabu}
+
+
+
+%Consulting?
+\end{document}

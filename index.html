@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Joseph L. Austerweil — Curriculum Vitae</title>
+<meta name="description" content="Curriculum vitae of Joseph L. Austerweil, Professor and Academic Director, School of Design &amp; Science, Chiba Institute of Technology.">
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #17181c;
+    --muted: #5b6070;
+    --rule: #e3e5ea;
+    --accent: #1c3f94;
+    --accent-fg: #ffffff;
+    --card: #f7f8fa;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14161a;
+      --fg: #e9ebf0;
+      --muted: #a2a8b8;
+      --rule: #2a2e37;
+      --accent: #7ea2f5;
+      --accent-fg: #10131a;
+      --card: #1c1f26;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 3rem 1.25rem 4rem;
+    background: var(--bg);
+    color: var(--fg);
+    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+  }
+  .wrap { max-width: 46rem; margin: 0 auto; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 0 0 .3rem; letter-spacing: -.01em; }
+  .role { color: var(--muted); margin: 0 0 1.6rem; }
+  .cta {
+    display: inline-block; padding: .8rem 1.4rem; border-radius: 8px;
+    background: var(--accent); color: var(--accent-fg);
+    font-weight: 600; text-decoration: none;
+  }
+  .cta:hover { filter: brightness(1.08); }
+  .updated { color: var(--muted); font-size: .9rem; margin: .9rem 0 0; }
+  .links { margin: 2.2rem 0 0; padding: 1.1rem 1.3rem; background: var(--card);
+           border: 1px solid var(--rule); border-radius: 10px; }
+  .links h2 { font-size: .8rem; text-transform: uppercase; letter-spacing: .08em;
+              color: var(--muted); margin: 0 0 .7rem; }
+  .links ul { margin: 0; padding-left: 1.1rem; }
+  .links li { margin: .3rem 0; }
+  a { color: var(--accent); }
+  .viewer { margin-top: 2.2rem; border: 1px solid var(--rule); border-radius: 10px;
+            overflow: hidden; background: var(--card); }
+  .viewer object, .viewer iframe { display: block; width: 100%; height: 82vh; border: 0; }
+  .fallback { padding: 1.4rem; color: var(--muted); }
+  footer { margin-top: 2.5rem; padding-top: 1.2rem; border-top: 1px solid var(--rule);
+           color: var(--muted); font-size: .88rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Joseph L. Austerweil</h1>
+  <p class="role">
+    Professor and Academic Director, School of Design &amp; Science,<br>
+    Chiba Institute of Technology
+  </p>
+
+  <a class="cta" href="JoeAusterweilCV.pdf">Download CV (PDF)</a>
+  <p class="updated">Last updated August 2026</p>
+
+  <div class="links">
+    <h2>Elsewhere</h2>
+    <ul>
+      <li><a href="https://cml.chibatech.dev">Computational Mind Laboratory</a></li>
+      <li><a href="https://sds.chibatech.dev">School of Design &amp; Science</a></li>
+      <li><a href="https://josephausterweil.github.io/probintro/">A Narrative Introduction to Probability</a> (open textbook)</li>
+      <li><a href="https://github.com/josephausterweil/academic-cv">CV source on GitHub</a></li>
+    </ul>
+  </div>
+
+  <div class="viewer">
+    <object data="JoeAusterweilCV.pdf" type="application/pdf">
+      <p class="fallback">
+        Your browser can't display the PDF inline —
+        <a href="JoeAusterweilCV.pdf">download it instead</a>.
+      </p>
+    </object>
+  </div>
+
+  <footer>
+    Built from LaTeX source in
+    <a href="https://github.com/josephausterweil/academic-cv">josephausterweil/academic-cv</a>.
+  </footer>
+
+</div>
+</body>
+</html>
