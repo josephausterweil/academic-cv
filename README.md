@@ -4,7 +4,7 @@
 
 Also served at **<https://josephausterweil.github.io/academic-cv/>**
 
-*Last updated: August 2026*
+*Last updated: September 2026*
 
 ---
 
